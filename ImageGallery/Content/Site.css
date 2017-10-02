@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*.gallery-item {
+    display: flex;
+    flex-direction: row;
+}*/
+
+.gallery-item img {
+    width: 285px;
+    height: 240px;
+}
