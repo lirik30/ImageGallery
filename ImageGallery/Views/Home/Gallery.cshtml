@@ -1,61 +1,36 @@
-﻿<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+﻿@model List<ImageGallery.Models.ImageViewModel>
+    
+@{
+    int pagesNumber = (int)Math.Ceiling((decimal) Model.Count / 4);
+}
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    @for (int i = 0; i < pagesNumber; i++)
+    {
+        <li data-target="#carousel-example-generic" data-slide-to="0" 
+            @if(i == 0){@: class = "active" 
+                                          }></li>
+    }
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
+        @for (int i = 0; i < pagesNumber; i++)
+        {
+            <div class="item @if(i == 0){@:active
+                 }">
+                <div class="gallery-container">
+                    @for (int j = i * 4; j < i * 4 + 4 && j < Model.Count; j++)
+                    {
+                        <div class="gallery-item">
+                            <img src="@Model[j].Path"/>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-                <div class="gallery-item">
-                    <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-                </div>
-            </div>
-        </div>
+        }
     </div>
 
     <!-- Controls -->
@@ -68,19 +43,3 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-
-@*<div class="gallery-container">
-        <div class="gallery-item">
-            <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg"/>
-        </div>
-        <div class="gallery-item">
-            <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg"/>
-        </div>
-        <div class="gallery-item">
-            <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-        </div>
-        <div class="gallery-item">
-            <img src="http://wallpaperget.com/images/hd-wallpapers-1920x1080-39.jpg" />
-        </div>
-</div>*@
