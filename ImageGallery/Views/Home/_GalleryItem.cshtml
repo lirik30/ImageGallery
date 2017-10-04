@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ImageGallery.Models.ImageViewModel>
+    
+@foreach(var image in Model)
+{ 
+    <div class="gallery-item">
+        <img src="@Url.Action("Image", new { id = image.Id})"/>
+    </div>
+}

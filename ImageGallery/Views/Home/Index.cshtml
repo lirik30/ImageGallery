@@ -1,7 +1,8 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-@{Html.RenderPartial("Gallery");}
+@Html.ActionLink("Add images", "AddImage", null, new {@class="btn-default btn"})
+<br/>
+@{Html.RenderPartial("_Gallery");}
 

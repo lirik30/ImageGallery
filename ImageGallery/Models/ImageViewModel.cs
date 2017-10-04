@@ -7,7 +7,9 @@ namespace ImageGallery.Models
 {
     public class ImageViewModel
     {
-        public string Path { get; set; }
+        public int Id { get; set; }
+        public byte[] SmallSizeImage { get; set; }
+        public byte[] FullSizeImage { get; set; }
         public string Description { get; set; }
     }
 }

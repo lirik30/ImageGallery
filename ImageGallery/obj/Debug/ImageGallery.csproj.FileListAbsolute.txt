@@ -65,3 +65,7 @@ C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\b
 C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\obj\Debug\ImageGallery.csprojResolveAssemblyReference.cache
 C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\obj\Debug\ImageGallery.dll
 C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\obj\Debug\ImageGallery.pdb
+C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\bin\EntityFramework.dll
+C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\bin\EntityFramework.SqlServer.dll
+C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\bin\EntityFramework.xml
+C:\Users\Kiril\documents\visual studio 2017\Projects\ImageGallery\ImageGallery\bin\EntityFramework.SqlServer.xml

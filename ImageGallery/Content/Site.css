@@ -29,12 +29,7 @@ textarea {
     flex-wrap: wrap;
 }
 
-/*.gallery-item {
-    display: flex;
-    flex-direction: row;
-}*/
-
-.gallery-item img {
+.gallery-item img { 
     width: 285px;
     height: 240px;
 }
