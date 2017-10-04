@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -14,8 +15,9 @@ namespace ImageGallery.Controllers
         private readonly ImageService _service = new ImageService();
         private int _imageNumbers = 6;
 
-        public ActionResult Index() 
+        public ActionResult Index()
         {
+            ViewBag.NumberOfImages = (int)Math.Ceiling((decimal)_service.GetAllImages().Count() / _imageNumbers);
             return View();
         }
 

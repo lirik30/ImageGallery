@@ -33,3 +33,9 @@ textarea {
     width: 285px;
     height: 240px;
 }
+
+.gallery-pages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

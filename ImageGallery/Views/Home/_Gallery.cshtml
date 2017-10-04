@@ -1,3 +1,18 @@
-﻿<div id="container" class="gallery-container">
+﻿@model int
+    
+<div id="container" class="gallery-container">
     @{ Html.RenderAction("List"); }
 </div>
+
+<div class="gallery-pages">
+    @for (int i = 1; i <= Model; i++)
+    {
+        <div>
+            @Ajax.ActionLink(i.ToString(), "List", new { index = i}, 
+                new AjaxOptions{UpdateTargetId = "container", InsertionMode = InsertionMode.Replace}, new {@class="btn"})
+        </div>
+    }
+</div>
+
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

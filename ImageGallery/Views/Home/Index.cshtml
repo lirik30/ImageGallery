@@ -2,7 +2,5 @@
     ViewBag.Title = "Index";
 }
 
-@Html.ActionLink("Add images", "AddImage", null, new {@class="btn-default btn"})
-<br/>
-@{Html.RenderPartial("_Gallery");}
+@{Html.RenderPartial("_Gallery", (int)ViewBag.NumberOfImages);}
 
