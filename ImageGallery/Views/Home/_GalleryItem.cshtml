@@ -3,6 +3,8 @@
 @foreach(var image in Model)
 { 
     <div class="gallery-item">
-        <img src="@Url.Action("Image", new { id = image.Id})"/>
+        <a href="@Url.Action("FullSizeImage", new { id = image.Id})" data-lightbox="image-@image.Id.ToString()" data-title="@image.Description"> 
+            <img src="@Url.Action("SmallSizeImage", new {id = image.Id})" />
+        </a>
     </div>
 }

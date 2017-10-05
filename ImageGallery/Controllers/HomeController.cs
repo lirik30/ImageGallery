@@ -13,7 +13,7 @@ namespace ImageGallery.Controllers
     public class HomeController : Controller
     {
         private readonly ImageService _service = new ImageService();
-        private int _imageNumbers = 6;
+        private int _imageNumbers = 4;
 
         public ActionResult Index()
         {
@@ -53,18 +53,24 @@ namespace ImageGallery.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        
         public ActionResult List(int index = 1)
         {
             var images = _service.GetAllImages().Skip((index - 1) * _imageNumbers).Take(_imageNumbers)
                                  .Select(i => i.ToMvcImage());
             return PartialView("_GalleryItem", images);
         }
-
-        public ActionResult Image(int id)
+        
+        public ActionResult SmallSizeImage(int id)
         {
             var image = _service.GetImageById(id).ToMvcImage();
             return File(image.SmallSizeImage, "image/jpg");
+        }
+
+        public ActionResult FullSizeImage(int id)
+        {
+            var image = _service.GetImageById(id).ToMvcImage();
+            return File(image.FullSizeImage, "image/jpg");
         }
     }
 }

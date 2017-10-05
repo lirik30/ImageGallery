@@ -1,5 +1,7 @@
 ﻿@model int
-    
+<head>
+    <link rel="stylesheet" href="~/Content/lightbox.css"/>
+</head>
 <div id="container" class="gallery-container">
     @{ Html.RenderAction("List"); }
 </div>
@@ -15,4 +17,5 @@
 </div>
 
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/lightbox.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
