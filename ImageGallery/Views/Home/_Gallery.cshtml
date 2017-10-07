@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="~/Content/lightbox.css"/>
 </head>
 <div id="container" class="gallery-container">
-    @{ Html.RenderAction("List"); }
+    @{ Html.RenderPartial("_GalleryItem", TempData["ImagesWhenNotAjax"]); }
 </div>
 
 <div class="gallery-pages">
@@ -11,7 +11,8 @@
     {
         <div>
             @Ajax.ActionLink(i.ToString(), "List", new { index = i}, 
-                new AjaxOptions{UpdateTargetId = "container", InsertionMode = InsertionMode.Replace}, new {@class="btn"})
+                new AjaxOptions{UpdateTargetId = "container", InsertionMode = InsertionMode.Replace}, 
+                new {@class="btn"})
         </div>
     }
 </div>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,13 @@ namespace ImageGallery.Controllers
 
         public ActionResult Index()
         {
+            if (TempData.Peek("ImagesWhenNotAjax") == null)
+            {
+                Debug.WriteLine("________________");
+                TempData["ImagesWhenNotAjax"] = _service.GetAllImages().Take(_imageNumbers).
+                    Select(i => i.ToMvcImage());
+            }
+                
             ViewBag.NumberOfImages = (int)Math.Ceiling((decimal)_service.GetAllImages().Count() / _imageNumbers);
             return View();
         }
@@ -57,7 +65,15 @@ namespace ImageGallery.Controllers
         public ActionResult List(int index = 1)
         {
             var images = _service.GetAllImages().Skip((index - 1) * _imageNumbers).Take(_imageNumbers)
-                                 .Select(i => i.ToMvcImage());
+                .Select(i => i.ToMvcImage());
+
+            if (!Request.IsAjaxRequest())
+            {
+                Debug.WriteLine("_______________________");
+                TempData["ImagesWhenNotAjax"] = images;
+                return RedirectToAction("Index");
+            }
+            
             return PartialView("_GalleryItem", images);
         }
         
